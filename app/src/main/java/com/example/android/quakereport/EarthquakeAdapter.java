@@ -15,6 +15,8 @@ import java.util.List;
 
 public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
+    private static final String LOCATION_SEPARATOR = " of ";
+
     public EarthquakeAdapter(@NonNull Context context, @NonNull List<Earthquake> objects) {
         super(context, R.layout.list_item, objects);
     }
@@ -32,15 +34,29 @@ public class EarthquakeAdapter extends ArrayAdapter<Earthquake> {
 
         // get current Item
         final Earthquake earthquake = getItem(position);
+        Date eventDate = new Date(earthquake.getEventDate());
+        String locationData;
+        String offsetData;
 
         TextView magnitudeTextView = (TextView) listItemView.findViewById(R.id.magnitude);
         magnitudeTextView.setText(earthquake.getMagnitude());
 
-        TextView magnitudeTextViewTextView = (TextView) listItemView.findViewById(R.id.eventLocation);
-        magnitudeTextViewTextView.setText(earthquake.getEventLocation());
+        if (earthquake.getEventLocation().contains(LOCATION_SEPARATOR)) {
+            String[] data = earthquake.getEventLocation().split(LOCATION_SEPARATOR, 2);
+            locationData = data[0] + LOCATION_SEPARATOR;
+            offsetData = data[1];
+        } else {
+            locationData = earthquake.getEventLocation();
+            offsetData = getContext().getString(R.string.near_the);
+        }
+
+        TextView eventOffsetTextView = (TextView) listItemView.findViewById(R.id.eventOffset);
+        eventOffsetTextView.setText(offsetData);
+
+        TextView eventLocationTextView = (TextView) listItemView.findViewById(R.id.eventLocation);
+        eventLocationTextView.setText(locationData);
 
         TextView eventDateTextView = (TextView) listItemView.findViewById(R.id.eventDate);
-        Date eventDate = new Date(earthquake.getEventDate());
         eventDateTextView.setText(formatDate(eventDate));
 
         TextView eventTimeTextView = (TextView) listItemView.findViewById(R.id.eventTime);
