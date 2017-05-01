@@ -4,9 +4,9 @@ public class Earthquake {
 
     private String magnitude;
     private String eventLocation;
-    private String eventDate;
+    private long eventDate;
 
-    public Earthquake(String magnitude, String eventLocation, String eventDate) {
+    public Earthquake(String magnitude, String eventLocation, long eventDate) {
         setMagnitude(magnitude);
         setEventLocation(eventLocation);
         setEventDate(eventDate);
@@ -28,11 +28,11 @@ public class Earthquake {
         this.eventLocation = eventLocation;
     }
 
-    public String getEventDate() {
+    public long getEventDate() {
         return eventDate;
     }
 
-    public void setEventDate(String eventDate) {
+    public void setEventDate(long eventDate) {
         this.eventDate = eventDate;
     }
 }
