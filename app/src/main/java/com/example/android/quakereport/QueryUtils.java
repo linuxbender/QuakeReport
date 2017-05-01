@@ -59,7 +59,7 @@ public final class QueryUtils {
                 JSONObject properties = feature.getJSONObject("properties");
 
                 earthquakes.add(new Earthquake(
-                        properties.getString("mag"),
+                        properties.getDouble("mag"),
                         properties.getString("place"),
                         properties.getLong("time")));
             }

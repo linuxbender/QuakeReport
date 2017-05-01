@@ -2,21 +2,21 @@ package com.example.android.quakereport;
 
 public class Earthquake {
 
-    private String magnitude;
+    private double magnitude;
     private String eventLocation;
     private long eventDate;
 
-    public Earthquake(String magnitude, String eventLocation, long eventDate) {
+    public Earthquake(double magnitude, String eventLocation, long eventDate) {
         setMagnitude(magnitude);
         setEventLocation(eventLocation);
         setEventDate(eventDate);
     }
 
-    public String getMagnitude() {
+    public double getMagnitude() {
         return magnitude;
     }
 
-    public void setMagnitude(String magnitude) {
+    public void setMagnitude(double magnitude) {
         this.magnitude = magnitude;
     }
 
