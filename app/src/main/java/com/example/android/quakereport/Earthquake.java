@@ -5,11 +5,13 @@ public class Earthquake {
     private double magnitude;
     private String eventLocation;
     private long eventDate;
+    private String url;
 
-    public Earthquake(double magnitude, String eventLocation, long eventDate) {
+    public Earthquake(double magnitude, String eventLocation, long eventDate, String url) {
         setMagnitude(magnitude);
         setEventLocation(eventLocation);
         setEventDate(eventDate);
+        setUrl(url);
     }
 
     public double getMagnitude() {
@@ -34,5 +36,13 @@ public class Earthquake {
 
     public void setEventDate(long eventDate) {
         this.eventDate = eventDate;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
     }
 }
