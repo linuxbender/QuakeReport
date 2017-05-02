@@ -36,7 +36,7 @@ public class EarthquakeActivity extends AppCompatActivity implements LoaderCallb
     public static final String LOG_TAG = EarthquakeActivity.class.getName();
     private static final int EARTHQUAKE_LOADER_ID = 1;
     private static final String USGS_REQUEST_URL =
-            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=4&limit=250";
+            "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&eventtype=earthquake&orderby=time&minmag=4&limit=80";
     private EarthquakeAdapter adapter;
     private TextView mEmptyStateTextView;
 
